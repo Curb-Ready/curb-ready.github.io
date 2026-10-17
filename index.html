@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curb Ready | Pro car photos and ready-to-post listings</title>
+<meta name="description" content="Pro photos and a ready-to-post listing for your car, back in 24–48 hours. Basic $40, Premium $60.">
+<meta name="theme-color" content="#070b14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070b14;--bg2:#0d1424;--card:#111a2e;--line:#1f2b45;--white:#f5f7fb;--muted:#9aa6bf;--accent:#ffb020;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:64px 0;border-top:1px solid var(--line)}
+h1,h2,h3{line-height:1.15;letter-spacing:-.02em}
+h2{font-size:clamp(1.6rem,5vw,2.3rem);font-weight:800;margin-bottom:8px}
+.kicker{color:var(--accent);font-weight:600;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.lead{color:var(--muted);max-width:620px;margin-bottom:32px}
+.btn{display:inline-block;background:var(--accent);color:#0a0d14;font-weight:800;text-decoration:none;padding:15px 26px;border-radius:12px;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 30px rgba(255,176,32,.25)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(255,176,32,.38)}
+.btn.ghost{background:transparent;color:var(--white);border:1px solid var(--line);box-shadow:none}
+nav{position:sticky;top:0;z-index:10;background:rgba(7,11,20,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:800;font-size:1.1rem;color:var(--white);text-decoration:none;letter-spacing:-.01em}
+.logo span{color:var(--accent)}
+nav .links{display:none;gap:22px}
+nav .links a{color:var(--muted);text-decoration:none;font-size:.92rem}
+nav .links a:hover{color:var(--white)}
+nav .btn{padding:9px 16px;font-size:.88rem;box-shadow:none}
+.hero{border-top:0;padding:80px 0 72px;position:relative;overflow:hidden;
+background:radial-gradient(ellipse 80% 60% at 70% 0%,rgba(60,90,170,.35),transparent 70%),radial-gradient(ellipse 50% 40% at 10% 100%,rgba(255,176,32,.12),transparent 70%),var(--bg)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.5}
+.hero h1{font-size:clamp(2.2rem,8vw,4rem);font-weight:800;max-width:800px;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{font-size:1.1rem;color:var(--muted);max-width:560px;margin-bottom:30px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero .note{margin-top:22px;font-size:.85rem;color:var(--muted)}
+.grid{display:grid;gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+.step .num{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(255,176,32,.12);color:var(--accent);font-weight:800;margin-bottom:14px}
+.step h3{font-size:1.15rem;margin-bottom:6px}
+.step p{color:var(--muted);font-size:.95rem}
+.price{display:flex;flex-direction:column}
+.price.featured{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 20px 50px rgba(255,176,32,.12);position:relative}
+.badge{position:absolute;top:-12px;right:20px;background:var(--accent);color:#0a0d14;font-size:.72rem;font-weight:800;padding:4px 10px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase}
+.price h3{font-size:1.25rem}
+.price .amt{font-size:2.8rem;font-weight:800;margin:6px 0 2px}
+.price .sub{color:var(--muted);font-size:.92rem;margin-bottom:18px}
+.price ul{list-style:none;margin-bottom:24px;flex:1}
+.price li{padding:7px 0 7px 26px;position:relative;font-size:.95rem;border-bottom:1px solid var(--line)}
+.price li:last-child{border-bottom:0}
+.price li::before{content:"";position:absolute;left:2px;top:14px;width:12px;height:7px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
+.price .btn{text-align:center}
+.addons{margin-top:22px}
+.addons h3{font-size:1rem;margin-bottom:10px}
+.addons table{width:100%;border-collapse:collapse;font-size:.95rem}
+.addons td{padding:9px 0;border-bottom:1px solid var(--line)}
+.addons td:last-child{text-align:right;font-weight:600;color:var(--accent);white-space:nowrap;padding-left:12px}
+.fine{color:var(--muted);font-size:.85rem;margin-top:14px}
+.shots h3{font-size:1rem;margin-bottom:10px;color:var(--accent)}
+.shots ol,.shots ul{padding-left:20px;color:var(--white);font-size:.94rem}
+.shots li{margin:5px 0}
+.shots li::marker{color:var(--muted)}
+.tip{background:rgba(255,176,32,.08);border:1px solid rgba(255,176,32,.3);border-radius:14px;padding:16px 18px;font-size:.93rem;margin-top:18px}
+.ba{display:grid;gap:18px}
+.frame{border-radius:18px;overflow:hidden;border:1px solid var(--line);position:relative;aspect-ratio:3/2}
+.frame .tag{position:absolute;top:14px;left:14px;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:rgba(0,0,0,.55);color:var(--white)}
+.frame .car{position:absolute;left:12%;right:12%;bottom:22%;height:26%;border-radius:40% 45% 12% 12%/70% 70% 20% 20%}
+.frame .car::before,.frame .car::after{content:"";position:absolute;bottom:-22%;width:19%;aspect-ratio:1;border-radius:50%}
+.frame .car::before{left:13%}.frame .car::after{right:13%}
+.before{background:linear-gradient(180deg,#8a8f86 0%,#a9a594 55%,#7d7a6c 56%,#6f6c60 100%);filter:saturate(.6) contrast(.85)}
+.before .car{background:linear-gradient(180deg,#9c9a92,#77756d);transform:rotate(-3deg)}
+.before .car::before,.before .car::after{background:#3c3b37}
+.before .glare{position:absolute;inset:0;background:radial-gradient(circle at 80% 15%,rgba(255,255,240,.7),transparent 35%)}
+.after{background:radial-gradient(ellipse 70% 50% at 50% 30%,rgba(70,110,200,.45),transparent 70%),linear-gradient(180deg,#0b1222 0%,#121c33 58%,#070b14 59%,#0a0f1c 100%)}
+.after .car{background:linear-gradient(180deg,#ffffff 0%,#dfe5f0 55%,#9aa6bf 100%);box-shadow:0 0 40px rgba(255,255,255,.18)}
+.after .car::before,.after .car::after{background:radial-gradient(circle,#2a3550 30%,#0b0f1a 32%);box-shadow:0 0 0 3px #1a2238}
+.after .reflect{position:absolute;left:12%;right:12%;bottom:6%;height:12%;background:linear-gradient(180deg,rgba(255,255,255,.12),transparent);filter:blur(6px);border-radius:50%}
+.after .light{position:absolute;left:14%;bottom:36%;width:6%;height:3%;background:var(--accent);border-radius:4px;box-shadow:0 0 18px var(--accent)}
+.ba-note{color:var(--muted);font-size:.85rem;margin-top:14px}
+.promise{display:grid;gap:12px;margin-top:22px}
+.promise div{font-size:.93rem;color:var(--muted)}
+.promise strong{color:var(--white)}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px}
+summary{cursor:pointer;padding:18px 20px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:800;font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"–"}
+details .ans{padding:0 20px 18px;color:var(--muted);font-size:.95rem}
+details .ans ul{padding-left:18px;margin-top:6px}
+.contact{text-align:center;background:radial-gradient(ellipse 60% 70% at 50% 100%,rgba(60,90,170,.3),transparent 70%)}
+.contact .lead{margin:0 auto 28px}
+.contact .mail{display:block;margin-top:18px;color:var(--muted);font-size:.92rem}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem}
+footer .wrap{display:flex;flex-direction:column;gap:6px}
+@media(min-width:720px){
+ nav .links{display:flex}
+ .steps{grid-template-columns:repeat(3,1fr)}
+ .prices{grid-template-columns:1fr 1fr;align-items:stretch}
+ .shots{grid-template-columns:repeat(3,1fr)}
+ .ba{grid-template-columns:1fr 1fr}
+ .promise{grid-template-columns:repeat(3,1fr)}
+ footer .wrap{flex-direction:row;justify-content:space-between}
+ section{padding:88px 0}
+ .hero{padding:120px 0 104px}
+}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+ <a class="logo" href="#top">Curb<span>Ready</span></a>
+ <div class="links"><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#shots">What to send</a><a href="#faq">FAQ</a></div>
+ <a class="btn" href="mailto:collinpatterson694@gmail.com?subject=Curb%20Ready%20-%20New%20listing%20request&amp;body=Hi%20Collin%2C%0A%0AI%27d%20like%20to%20get%20my%20car%20Curb%20Ready.%20Here%20are%20my%20details%3A%0A%0APackage%20%28Basic%20%2440%20/%20Premium%20%2460%29%20and%20any%20add-ons%3A%0AYear%20/%20make%20/%20model%20/%20trim%3A%0AMileage%3A%0ATitle%20status%20%28clean%20/%20rebuilt%20/%20salvage%20/%20lien%20/%20lost%29%3A%0ACondition%20%28excellent%20/%20good%20/%20fair%20/%20needs%20work%29%20and%20any%20known%20issues%3A%0AKey%20features%3A%0AAsking%20price%3A%0ACity%20or%20neighborhood%3A%0APreferred%20payment%20%28Zelle%20or%20card%20via%20Stripe%29%3A%0A%0AThanks%21">Get started</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+ <div class="kicker">Car listing service</div>
+ <h1>Make your car look <em>ready to sell.</em></h1>
+ <p>Pro photos and a ready-to-post listing for your car, back in 24–48 hours.</p>
+ <div class="ctas"><a class="btn" href="mailto:collinpatterson694@gmail.com?subject=Curb%20Ready%20-%20New%20listing%20request&amp;body=Hi%20Collin%2C%0A%0AI%27d%20like%20to%20get%20my%20car%20Curb%20Ready.%20Here%20are%20my%20details%3A%0A%0APackage%20%28Basic%20%2440%20/%20Premium%20%2460%29%20and%20any%20add-ons%3A%0AYear%20/%20make%20/%20model%20/%20trim%3A%0AMileage%3A%0ATitle%20status%20%28clean%20/%20rebuilt%20/%20salvage%20/%20lien%20/%20lost%29%3A%0ACondition%20%28excellent%20/%20good%20/%20fair%20/%20needs%20work%29%20and%20any%20known%20issues%3A%0AKey%20features%3A%0AAsking%20price%3A%0ACity%20or%20neighborhood%3A%0APreferred%20payment%20%28Zelle%20or%20card%20via%20Stripe%29%3A%0A%0AThanks%21">Get started</a><a class="btn ghost" href="#pricing">See pricing</a></div>
+ <div class="note">From $40 · Facebook Marketplace, Craigslist &amp; OfferUp · Honest edits only</div>
+</div></header>
+
+<section id="how"><div class="wrap">
+ <div class="kicker">How it works</div>
+ <h2>Three steps. No photoshoot.</h2>
+ <p class="lead">You take the photos on your phone. We handle everything that makes a listing stand out.</p>
+ <div class="grid steps">
+  <div class="card step"><div class="num">1</div><h3>Send photos &amp; details</h3><p>Follow our simple shot list, then send your phone photos and a few details about the car.</p></div>
+  <div class="card step"><div class="num">2</div><h3>We edit &amp; write</h3><p>We professionally edit the photos and write a listing tuned for Facebook Marketplace, Craigslist and OfferUp.</p></div>
+  <div class="card step"><div class="num">3</div><h3>You post &amp; sell</h3><p>Copy, paste, upload and start answering buyers. Your car looks its best, never different.</p></div>
+ </div>
+</div></section>
+
+<section id="pricing"><div class="wrap">
+ <div class="kicker">Pricing</div>
+ <h2>Simple flat pricing</h2>
+ <p class="lead">One flat fee for photos and copy. No commission, no cut of your sale.</p>
+ <div class="grid prices">
+  <div class="card price">
+   <h3>Basic</h3><div class="amt">$40</div><div class="sub">For sellers who want their listing to look good and read well.</div>
+   <ul>
+    <li>Up to 12 edited photos</li>
+    <li>Exposure &amp; color correction, straightening, cropping, light background cleanup, plate blurring</li>
+    <li>Listing copy: title, full description and key features</li>
+    <li>Formatted for FB Marketplace, Craigslist &amp; OfferUp</li>
+    <li>1 round of revisions</li>
+    <li>Delivered within 48 hours</li>
+   </ul>
+   <a class="btn ghost" href="mailto:collinpatterson694@gmail.com?subject=Curb%20Ready%20-%20New%20listing%20request&amp;body=Hi%20Collin%2C%0A%0AI%27d%20like%20to%20get%20my%20car%20Curb%20Ready.%20Here%20are%20my%20details%3A%0A%0APackage%20%28Basic%20%2440%20/%20Premium%20%2460%29%20and%20any%20add-ons%3A%0AYear%20/%20make%20/%20model%20/%20trim%3A%0AMileage%3A%0ATitle%20status%20%28clean%20/%20rebuilt%20/%20salvage%20/%20lien%20/%20lost%29%3A%0ACondition%20%28excellent%20/%20good%20/%20fair%20/%20needs%20work%29%20and%20any%20known%20issues%3A%0AKey%20features%3A%0AAsking%20price%3A%0ACity%20or%20neighborhood%3A%0APreferred%20payment%20%28Zelle%20or%20card%20via%20Stripe%29%3A%0A%0AThanks%21">Choose Basic</a>
+  </div>
+  <div class="card price featured"><span class="badge">Most complete</span>
+   <h3>Premium</h3><div class="amt">$60</div><div class="sub">For sellers who want the right price and a fresh listing.</div>
+   <ul>
+    <li>Everything in Basic</li>
+    <li>Up to 25 edited photos, in a recommended gallery order</li>
+    <li>Local price check: comparable listings plus KBB &amp; Edmunds ranges, with a suggested asking price</li>
+    <li>Day-7 refresh if unsold: new cover photo, rewritten title &amp; price suggestion</li>
+    <li>2 rounds of revisions</li>
+    <li>"Safe selling" checklist</li>
+    <li>Delivered within 24 hours</li>
+   </ul>
+   <a class="btn" href="mailto:collinpatterson694@gmail.com?subject=Curb%20Ready%20-%20New%20listing%20request&amp;body=Hi%20Collin%2C%0A%0AI%27d%20like%20to%20get%20my%20car%20Curb%20Ready.%20Here%20are%20my%20details%3A%0A%0APackage%20%28Basic%20%2440%20/%20Premium%20%2460%29%20and%20any%20add-ons%3A%0AYear%20/%20make%20/%20model%20/%20trim%3A%0AMileage%3A%0ATitle%20status%20%28clean%20/%20rebuilt%20/%20salvage%20/%20lien%20/%20lost%29%3A%0ACondition%20%28excellent%20/%20good%20/%20fair%20/%20needs%20work%29%20and%20any%20known%20issues%3A%0AKey%20features%3A%0AAsking%20price%3A%0ACity%20or%20neighborhood%3A%0APreferred%20payment%20%28Zelle%20or%20card%20via%20Stripe%29%3A%0A%0AThanks%21">Choose Premium</a>
+  </div>
+ </div>
+ <div class="card addons">
+  <h3>Add-ons</h3>
+  <table>
+   <tr><td>Extra refresh</td><td>$10</td></tr>
+   <tr><td>Rush on Basic (same-day if received by noon)</td><td>$10</td></tr>
+   <tr><td>Photos beyond your tier limit</td><td>$2 each</td></tr>
+  </table>
+ </div>
+ <p class="fine">Pay by Zelle or card via Stripe (cards, Apple Pay, Google Pay). Turnaround starts once we have your photos, details and payment.</p>
+</div></section>
+
+<section id="shots"><div class="wrap">
+ <div class="kicker">What to send us</div>
+ <h2>The shot list</h2>
+ <p class="lead">Wash and vacuum the car, clear out personal items, and shoot in open shade or near sunrise/sunset. Hold your phone horizontally at headlight height, flash off, no pinch-zoom. Walk closer instead.</p>
+ <div class="grid shots">
+  <div class="card"><h3>Exterior (8)</h3><ol>
+   <li>Front 3/4, driver side (usually the cover)</li><li>Front, straight on</li><li>Driver side profile</li><li>Rear 3/4, passenger side</li><li>Rear, straight on</li><li>Passenger side profile</li><li>Front 3/4, passenger side</li><li>Wheel &amp; tire close-up (show tread)</li></ol></div>
+  <div class="card"><h3>Interior (7)</h3><ol start="9">
+   <li>Dashboard from the back seat, centered</li><li>Driver seat &amp; door, door open</li><li>Instrument cluster with the car running</li><li>Center console, screen &amp; shifter</li><li>Rear seats</li><li>Front passenger seat</li><li>Headliner or sunroof</li></ol></div>
+  <div class="card"><h3>Details (5+)</h3><ol start="16">
+   <li>Trunk or cargo area (open)</li><li>Engine bay</li><li>Keys or fobs</li><li>Every dent, scratch, rust spot or tear, close up</li><li>Anything special: new tires, upgrades, receipts</li></ol></div>
+ </div>
+ <div class="tip"><strong>Send everything.</strong> We'll pick the best shots for your tier and put them in the strongest order. Use Google Drive, Dropbox or a shared album.</div>
+</div></section>
+
+<section id="results"><div class="wrap">
+ <div class="kicker">Before &amp; after</div>
+ <h2>Your best shot, honestly</h2>
+ <p class="lead">Better light, true color, straight lines and a clean frame, without hiding anything.</p>
+ <div class="ba">
+  <div class="frame before" role="img" aria-label="Illustration of an unedited phone photo: flat, washed out and tilted"><div class="glare"></div><div class="car"></div><span class="tag">Before</span></div>
+  <div class="frame after" role="img" aria-label="Illustration of an edited photo: balanced, crisp and level"><div class="reflect"></div><div class="car"></div><div class="light"></div><span class="tag">After</span></div>
+ </div>
+ <p class="ba-note">Illustration only. Real examples coming soon.</p>
+ <div class="promise">
+  <div><strong>Make it look its best, not different.</strong> We never hide damage, rust, scratches or warning lights.</div>
+  <div><strong>No fake backgrounds.</strong> We only tidy small background clutter.</div>
+  <div><strong>Plates blurred by default.</strong> Your VIN is never published unless you ask.</div>
+ </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+ <div class="kicker">FAQ</div>
+ <h2>Questions</h2>
+ <p class="lead">Still unsure? Email us and we'll help.</p>
+ <details><summary>When does the 24–48 hour clock start?</summary><div class="ans">Once we have all three: your photos, your car details, and payment (or the deposit for a Premium 50/50 order). If photos are too blurry or dark to fix, we'll ask for reshoots and the clock restarts.</div></details>
+ <details><summary>How do I pay?</summary><div class="ans">Zelle or card via a Stripe payment link (cards, Apple Pay, Google Pay). Basic is paid upfront. Premium can be paid in full, or $30 now and $30 before final files are delivered.</div></details>
+ <details><summary>What's your refund policy?</summary><div class="ans"><ul>
+  <li><strong>Full refund</strong> if you cancel before work starts.</li>
+  <li><strong>50% refund</strong> if you cancel after work starts but before delivery.</li>
+  <li>After delivery, we'll make it right with your included revisions. If it still isn't usable, we'll issue a partial or full refund at our discretion.</li>
+  <li>No refunds based on whether, or for how much, the car sells.</li></ul></div></details>
+ <details><summary>Do you guarantee my car will sell?</summary><div class="ans">No. Curb Ready improves your photos and listing. We don't sell the car or guarantee a price or timeline, and we don't take a commission.</div></details>
+ <details><summary>What counts as a revision?</summary><div class="ans">Changes to the delivered work, like copy tweaks or photo re-edits. Basic includes 1 round, Premium includes 2. A revision isn't a new set of photos.</div></details>
+ <details><summary>Will you hide dents or damage?</summary><div class="ans">Never. Honest photos build trust with buyers and save everyone wasted trips. We fix light, color and framing, not the car.</div></details>
+ <details><summary>Who owns the photos?</summary><div class="ans">You do, originals and edits. We only use them as portfolio examples if you say yes, and only with plates blurred.</div></details>
+ <details><summary>What happens to my info and files?</summary><div class="ans">Your info is used only for your order. Files are deleted 60 days after delivery unless you ask us to keep them. Share your city or neighborhood only, never a home address.</div></details>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+ <div class="kicker">Get started</div>
+ <h2>Ready to list?</h2>
+ <p class="lead">Tap below to email us. The message comes pre-filled with the questions we need: year/make/model/trim, mileage, title status, condition, features, asking price and city.</p>
+ <a class="btn" href="mailto:collinpatterson694@gmail.com?subject=Curb%20Ready%20-%20New%20listing%20request&amp;body=Hi%20Collin%2C%0A%0AI%27d%20like%20to%20get%20my%20car%20Curb%20Ready.%20Here%20are%20my%20details%3A%0A%0APackage%20%28Basic%20%2440%20/%20Premium%20%2460%29%20and%20any%20add-ons%3A%0AYear%20/%20make%20/%20model%20/%20trim%3A%0AMileage%3A%0ATitle%20status%20%28clean%20/%20rebuilt%20/%20salvage%20/%20lien%20/%20lost%29%3A%0ACondition%20%28excellent%20/%20good%20/%20fair%20/%20needs%20work%29%20and%20any%20known%20issues%3A%0AKey%20features%3A%0AAsking%20price%3A%0ACity%20or%20neighborhood%3A%0APreferred%20payment%20%28Zelle%20or%20card%20via%20Stripe%29%3A%0A%0AThanks%21">Get started</a>
+ <span class="mail">or email <a href="mailto:collinpatterson694@gmail.com">collinpatterson694@gmail.com</a></span>
+</div></section>
+
+<footer><div class="wrap">
+ <span>© 2026 Curb Ready</span>
+ <span>No guarantee of sale. We improve your photos and listing; we don't sell the car or promise a price or timeline.</span>
+</div></footer>
+</body>
+</html>
