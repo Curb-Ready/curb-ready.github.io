@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book your listing | Curb Ready</title>
+<meta name="description" content="Book a Curb Ready listing: pick Basic ($40) or Premium ($60), pay by Zelle, get your order number and receipt, then send your car details and photos.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://curb-ready.github.io/order.html">
+<meta name="theme-color" content="#070b14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070b14;--bg2:#0d1424;--card:#111a2e;--line:#1f2b45;--white:#f5f7fb;--muted:#9aa6bf;--accent:#ffb020;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+section{padding:52px 0;border-top:1px solid var(--line)}
+h1,h2,h3{line-height:1.15;letter-spacing:-.02em}
+h2{font-size:clamp(1.5rem,5vw,2rem);font-weight:800;margin-bottom:8px}
+.kicker{color:var(--accent);font-weight:600;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.lead{color:var(--muted);max-width:620px;margin-bottom:28px}
+.btn{display:inline-block;background:var(--accent);color:#0a0d14;font-weight:800;text-decoration:none;padding:15px 26px;border-radius:12px;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 30px rgba(255,176,32,.25);border:0;cursor:pointer;font-size:1rem;font-family:inherit}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(255,176,32,.38)}
+.btn.ghost{background:transparent;color:var(--white);border:1px solid var(--line);box-shadow:none}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+nav{position:sticky;top:0;z-index:10;background:rgba(7,11,20,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:800;font-size:1.1rem;color:var(--white);text-decoration:none;letter-spacing:-.01em}
+.logo span{color:var(--accent)}
+.hero{padding:64px 0 20px;text-align:left}
+.hero h1{font-size:clamp(2rem,7vw,3rem);font-weight:800;margin-bottom:12px}
+.hero p{color:var(--muted);max-width:560px}
+.stepnum{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:rgba(255,176,32,.12);color:var(--accent);font-weight:800;margin-bottom:12px}
+.pkgs{display:grid;gap:16px}
+@media(min-width:680px){.pkgs{grid-template-columns:1fr 1fr}}
+.pkg{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:24px;cursor:pointer;transition:border-color .15s,box-shadow .15s;text-align:left;width:100%;color:var(--white);font-family:inherit}
+.pkg:hover{border-color:#35507e}
+.pkg.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 16px 40px rgba(255,176,32,.10)}
+.pkg h3{font-size:1.2rem}
+.pkg .amt{font-size:2.4rem;font-weight:800;margin:4px 0 2px}
+.pkg .sub{color:var(--muted);font-size:.92rem;margin-bottom:12px}
+.pkg ul{list-style:none;font-size:.93rem}
+.pkg li{padding:5px 0 5px 24px;position:relative;border-bottom:1px solid var(--line)}
+.pkg li:last-child{border-bottom:0}
+.pkg li::before{content:"";position:absolute;left:2px;top:13px;width:11px;height:6px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
+.pkg .pick{margin-top:16px;font-weight:800;color:var(--accent);font-size:.9rem;letter-spacing:.06em;text-transform:uppercase}
+.zellebox{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;text-align:center}
+.zellebox .num{font-size:clamp(1.9rem,7vw,2.7rem);font-weight:800;letter-spacing:.02em;margin:8px 0 4px}
+.zellebox .hint{color:var(--muted);font-size:.93rem;max-width:460px;margin:0 auto 18px}
+.copyrow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.receipt{background:linear-gradient(180deg,var(--bg2),var(--card));border:1px dashed #35507e;border-radius:18px;padding:28px;text-align:center}
+.receipt .ord{font-size:clamp(2rem,8vw,3rem);font-weight:800;letter-spacing:.06em;color:var(--accent);margin:6px 0}
+.receipt .meta{color:var(--muted);font-size:.95rem}
+.receipt .meta b{color:var(--white)}
+.later{background:rgba(255,176,32,.07);border:1px solid rgba(255,176,32,.28);border-radius:14px;padding:18px 20px;font-size:.95rem;margin-top:20px}
+.later b{color:var(--white)}
+.fine{color:var(--muted);font-size:.85rem;margin-top:14px}
+.center{text-align:center}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem}
+footer .wrap{display:flex;flex-direction:column;gap:6px}
+@media(min-width:720px){footer .wrap{flex-direction:row;justify-content:space-between}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+ <a class="logo" href="./">Curb<span>Ready</span></a>
+ <a class="btn" style="padding:9px 16px;font-size:.88rem;box-shadow:none" href="./#pricing">Pricing</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+ <div class="kicker">Book your listing</div>
+ <h1>Four steps and you&apos;re done.</h1>
+ <p>Pick a package, pay, save your receipt, then send us your car details and photos — now, or later by text or email. Turnaround starts when we have your payment and your photos.</p>
+</div></header>
+
+<section><div class="wrap">
+ <div class="stepnum">1</div>
+ <h2>Pick your package</h2>
+ <p class="lead">Tap one to select it.</p>
+ <div class="pkgs">
+  <button type="button" class="pkg" id="pkg-basic" data-pkg="Basic" data-amt="40">
+   <h3>Basic</h3><div class="amt">$40</div><div class="sub">Paid upfront. Back in 48 hours.</div>
+   <ul><li>Up to 12 edited photos</li><li>Listing copy written for you</li><li>Ready for Marketplace, Craigslist &amp; OfferUp</li></ul>
+   <div class="pick">Select Basic</div>
+  </button>
+  <button type="button" class="pkg" id="pkg-premium" data-pkg="Premium" data-amt="60">
+   <h3>Premium</h3><div class="amt">$60</div><div class="sub">Or split it: $30 now, $30 on delivery. Back in 24 hours.</div>
+   <ul><li>Everything in Basic, priority turnaround</li><li>Price research &amp; posting checklist</li><li>Buyer-message reply templates</li></ul>
+   <div class="pick">Select Premium</div>
+  </button>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <div class="stepnum">2</div>
+ <h2>Pay with Zelle</h2>
+ <p class="lead">Send your payment to our Zelle. Put your name in the Zelle note so we can match it to your order.</p>
+ <div class="zellebox">
+  <div class="kicker" style="margin-bottom:0">Zelle</div>
+  <div class="num" id="zelle-num">713-351-9285</div>
+  <p class="hint" id="pay-hint">Amount: <b style="color:var(--white)">$40</b> (Basic, paid in full). Premium: $60, or $30 now and $30 on delivery.</p>
+  <div class="copyrow">
+   <button type="button" class="btn" id="copy-zelle">Copy Zelle number</button>
+  </div>
+  <p class="fine">Paying by card instead? Card payment link is coming soon — Zelle is the fastest way today.</p>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <div class="stepnum">3</div>
+ <h2>Save your receipt</h2>
+ <p class="lead">This is your order. Screenshot it or download it — you&apos;ll need your order number for the next step.</p>
+ <div class="receipt">
+  <div class="kicker" style="margin-bottom:0">Curb Ready — Order</div>
+  <div class="ord" id="ord-num">CR-······</div>
+  <div class="meta">Package: <b id="ord-pkg">Basic — $40</b> &middot; Date: <b id="ord-date"></b></div>
+  <div class="meta" style="margin-top:6px">Keep this receipt. Your listing is delivered back in 24–48 hours once we have your payment, details and photos.</div>
+  <div style="margin-top:20px"><button type="button" class="btn" id="dl-receipt">Download receipt</button></div>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <div class="stepnum">4</div>
+ <h2>Send your car details &amp; photos</h2>
+ <p class="lead">Two-minute form: your name and phone, your VIN, anything we should know about the car, and upload as many photos as you can. Type your order number (<b style="color:var(--white)" id="ord-num-2">CR-······</b>) in the first field so everything stays matched to your order.</p>
+ <div class="center"><a class="btn" id="form-link" href="https://docs.google.com/forms/d/e/1FAIpQLSfzzBo17KrS4MojBZ2caSn-owgvv4FaVzZCCrEflcek6FxQeA/viewform?usp=header" target="_blank" rel="noopener">Open the order form</a></div>
+ <div class="later"><b>Rather do it later?</b> No problem. Text or email your details and photos any time — just include your order number <b id="ord-num-3">CR-······</b>:<br>
+ Text: <a href="sms:+17133519285"><b>713-351-9285</b></a> &middot; Email: <a href="mailto:collinpatterson694@gmail.com"><b>collinpatterson694@gmail.com</b></a></div>
+ <p class="fine">Questions before you book? DM us on Instagram <a href="https://www.instagram.com/curb_ready/" target="_blank" rel="noopener">@curb_ready</a>.</p>
+</div></section>
+
+<footer><div class="wrap">
+ <div>© 2026 Curb Ready</div>
+ <div>Houston, TX &middot; <a href="./">Back to home</a></div>
+</div></footer>
+
+<script>
+(function(){
+  var CHARS='ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+  var ord='CR-';
+  for(var i=0;i<6;i++){ord+=CHARS.charAt(Math.floor(Math.random()*CHARS.length));}
+  var pkg='Basic', amt=40;
+  function render(){
+    document.getElementById('ord-num').textContent=ord;
+    document.getElementById('ord-num-2').textContent=ord;
+    document.getElementById('ord-num-3').textContent=ord;
+    document.getElementById('ord-pkg').textContent=pkg+' — $'+amt;
+    document.getElementById('pay-hint').innerHTML = pkg==='Basic'
+      ? 'Amount: <b style="color:var(--white)">$40</b> (Basic, paid in full).'
+      : 'Amount: <b style="color:var(--white)">$60</b> (Premium, paid in full) — or <b style="color:var(--white)">$30 now</b> and $30 on delivery.';
+    document.getElementById('pkg-basic').classList.toggle('sel',pkg==='Basic');
+    document.getElementById('pkg-premium').classList.toggle('sel',pkg==='Premium');
+  }
+  document.getElementById('ord-date').textContent=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  document.querySelectorAll('.pkg').forEach(function(b){
+    b.addEventListener('click',function(){pkg=b.getAttribute('data-pkg');amt=b.getAttribute('data-amt');render();});
+  });
+  var q=new URLSearchParams(location.search);
+  if((q.get('pkg')||'').toLowerCase()==='premium'){pkg='Premium';amt=60;}
+  render();
+  document.getElementById('copy-zelle').addEventListener('click',function(){
+    var btn=this;
+    function done(){btn.textContent='Copied ✓';setTimeout(function(){btn.textContent='Copy Zelle number';},1800);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText('7133519285').then(done,done);}else{done();}
+  });
+  document.getElementById('dl-receipt').addEventListener('click',function(){
+    var c=document.createElement('canvas');c.width=1000;c.height=600;
+    var x=c.getContext('2d');
+    x.fillStyle='#0d1424';x.fillRect(0,0,1000,600);
+    x.fillStyle='#ffb020';x.fillRect(0,0,1000,10);
+    x.fillStyle='#f5f7fb';x.textAlign='center';
+    x.font='800 44px Inter, Arial, sans-serif';x.fillText('CURB READY',500,110);
+    x.font='600 22px Inter, Arial, sans-serif';x.fillStyle='#9aa6bf';x.fillText('ORDER RECEIPT',500,148);
+    x.font='800 76px Inter, Arial, sans-serif';x.fillStyle='#ffb020';x.fillText(ord,500,268);
+    x.font='600 30px Inter, Arial, sans-serif';x.fillStyle='#f5f7fb';
+    x.fillText('Package: '+pkg+' — $'+amt,500,340);
+    x.font='400 24px Inter, Arial, sans-serif';x.fillStyle='#9aa6bf';
+    x.fillText('Date: '+document.getElementById('ord-date').textContent,500,384);
+    x.fillText('Paid via Zelle to 713-351-9285',500,424);
+    x.fillText('Send your car details + photos with your order number:',500,486);
+    x.fillText('Text 713-351-9285 · curb-ready.github.io',500,522);
+    var a=document.createElement('a');a.download='curb-ready-receipt-'+ord+'.png';a.href=c.toDataURL('image/png');a.click();
+  });
+})();
+</script>
+</body>
+</html>
