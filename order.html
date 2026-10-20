@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Book your listing | Curb Ready</title>
-<meta name="description" content="Book a Curb Ready listing: pick Basic ($40) or Premium ($60), pay by Zelle, get your order number and receipt, then send your car details and photos.">
+<meta name="description" content="Book Curb Ready: pick Basic ($40), Premium ($60) or Local Full-Service ($200, 77379 area), pay by Zelle, get your order number and receipt, then send your car details and photos.">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://curb-ready.github.io/order.html">
 <meta name="theme-color" content="#070b14">
@@ -36,7 +36,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .hero p{color:var(--muted);max-width:560px}
 .stepnum{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:rgba(255,176,32,.12);color:var(--accent);font-weight:800;margin-bottom:12px}
 .pkgs{display:grid;gap:16px}
-@media(min-width:680px){.pkgs{grid-template-columns:1fr 1fr}}
+@media(min-width:680px){.pkgs{grid-template-columns:1fr 1fr}.pkg.wide{grid-column:1/-1}}
 .pkg{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:24px;cursor:pointer;transition:border-color .15s,box-shadow .15s;text-align:left;width:100%;color:var(--white);font-family:inherit}
 .pkg:hover{border-color:#35507e}
 .pkg.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 16px 40px rgba(255,176,32,.10)}
@@ -74,7 +74,7 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
 <header class="hero"><div class="wrap">
  <div class="kicker">Book your listing</div>
  <h1>Four steps and you&apos;re done.</h1>
- <p>Pick a package, pay, save your receipt, then send us your car details and photos — now, or later by text or email. Turnaround starts when we have your payment and your photos.</p>
+ <p>Pick a package, pay, save your receipt, then send us your car details and photos — now, or later by text or email. We get started when we have your payment and your photos.</p>
 </div></header>
 
 <section><div class="wrap">
@@ -83,14 +83,19 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
  <p class="lead">Tap one to select it.</p>
  <div class="pkgs">
   <button type="button" class="pkg" id="pkg-basic" data-pkg="Basic" data-amt="40">
-   <h3>Basic</h3><div class="amt">$40</div><div class="sub">Paid upfront. Back in 48 hours.</div>
-   <ul><li>Up to 12 edited photos</li><li>Listing copy written for you</li><li>Ready for Marketplace, Craigslist &amp; OfferUp</li></ul>
+   <h3>Basic</h3><div class="amt">$40</div><div class="sub">Paid upfront. We run your sale — you meet the buyer.</div>
+   <ul><li>Up to 12 edited photos</li><li>Listing written &amp; posted for you</li><li>Buyer messages &amp; offers handled</li></ul>
    <div class="pick">Select Basic</div>
   </button>
   <button type="button" class="pkg" id="pkg-premium" data-pkg="Premium" data-amt="60">
-   <h3>Premium</h3><div class="amt">$60</div><div class="sub">Or split it: $30 now, $30 on delivery. Back in 24 hours.</div>
-   <ul><li>Everything in Basic, priority turnaround</li><li>Price research &amp; posting checklist</li><li>Buyer-message reply templates</li></ul>
+   <h3>Premium</h3><div class="amt">$60</div><div class="sub">Or split it: $30 now, $30 later. Priority start.</div>
+   <ul><li>Everything in Basic, priority handling</li><li>Up to 25 photos</li><li>Price research + suggested asking price</li></ul>
    <div class="pick">Select Premium</div>
+  </button>
+  <button type="button" class="pkg wide" id="pkg-local" data-pkg="Local Full-Service" data-amt="200">
+   <h3>Local Full-Service — Spring / 77379</h3><div class="amt">$200</div><div class="sub">Paid upfront. We pick up your car and sell it for you.</div>
+   <ul><li>Everything in Premium</li><li>We pick up your car &amp; meet buyers</li><li>Sold at a price you approved</li></ul>
+   <div class="pick">Select Local</div>
   </button>
  </div>
 </div></section>
@@ -102,7 +107,7 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
  <div class="zellebox">
   <div class="kicker" style="margin-bottom:0">Zelle</div>
   <div class="num" id="zelle-num">713-351-9285</div>
-  <p class="hint" id="pay-hint">Amount: <b style="color:var(--white)">$40</b> (Basic, paid in full). Premium: $60, or $30 now and $30 on delivery.</p>
+  <p class="hint" id="pay-hint">Amount: <b style="color:var(--white)">$40</b> (Basic, paid in full).</p>
   <div class="copyrow">
    <button type="button" class="btn" id="copy-zelle">Copy Zelle number</button>
   </div>
@@ -118,7 +123,7 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
   <div class="kicker" style="margin-bottom:0">Curb Ready — Order</div>
   <div class="ord" id="ord-num">CR-······</div>
   <div class="meta">Package: <b id="ord-pkg">Basic — $40</b> &middot; Date: <b id="ord-date"></b></div>
-  <div class="meta" style="margin-top:6px">Keep this receipt. Your listing is delivered back in 24–48 hours once we have your payment, details and photos.</div>
+  <div class="meta" style="margin-top:6px">Keep this receipt. We get started once we have your payment, details and photos.</div>
   <div style="margin-top:20px"><button type="button" class="btn" id="dl-receipt">Download receipt</button></div>
  </div>
 </div></section>
@@ -151,9 +156,12 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
     document.getElementById('ord-pkg').textContent=pkg+' — $'+amt;
     document.getElementById('pay-hint').innerHTML = pkg==='Basic'
       ? 'Amount: <b style="color:var(--white)">$40</b> (Basic, paid in full).'
-      : 'Amount: <b style="color:var(--white)">$60</b> (Premium, paid in full) — or <b style="color:var(--white)">$30 now</b> and $30 on delivery.';
+      : pkg==='Premium'
+      ? 'Amount: <b style="color:var(--white)">$60</b> (Premium, paid in full) — or <b style="color:var(--white)">$30 now</b> and $30 later.'
+      : 'Amount: <b style="color:var(--white)">$200</b> (Local Full-Service, paid in full).';
     document.getElementById('pkg-basic').classList.toggle('sel',pkg==='Basic');
     document.getElementById('pkg-premium').classList.toggle('sel',pkg==='Premium');
+    document.getElementById('pkg-local').classList.toggle('sel',pkg==='Local Full-Service');
   }
   document.getElementById('ord-date').textContent=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
   document.querySelectorAll('.pkg').forEach(function(b){
@@ -161,6 +169,7 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
   });
   var q=new URLSearchParams(location.search);
   if((q.get('pkg')||'').toLowerCase()==='premium'){pkg='Premium';amt=60;}
+  if((q.get('pkg')||'').toLowerCase()==='local'){pkg='Local Full-Service';amt=200;}
   render();
   document.getElementById('copy-zelle').addEventListener('click',function(){
     var btn=this;
