@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Book your listing | Curb Ready</title>
-<meta name="description" content="Book Curb Ready: pick Basic ($40), Premium ($60) or Local Full-Service ($200, 77379 area), pay by Zelle, get your order number and receipt, then send your car details and photos.">
+<meta name="description" content="Book Curb Ready: pick Basic ($40) or Premium ($60), pay by Zelle, get your order number and receipt, then send your car details and photos.">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://curb-ready.github.io/order.html">
 <meta name="theme-color" content="#070b14">
@@ -92,11 +92,6 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
    <ul><li>Everything in Basic, priority handling</li><li>Up to 25 photos</li><li>Price research + suggested asking price</li></ul>
    <div class="pick">Select Premium</div>
   </button>
-  <button type="button" class="pkg wide" id="pkg-local" data-pkg="Local Full-Service" data-amt="200">
-   <h3>Local Full-Service — Spring / 77379</h3><div class="amt">$200</div><div class="sub">Paid upfront. We pick up your car and sell it for you.</div>
-   <ul><li>Everything in Premium</li><li>We pick up your car &amp; meet buyers</li><li>Sold at a price you approved</li></ul>
-   <div class="pick">Select Local</div>
-  </button>
  </div>
 </div></section>
 
@@ -156,12 +151,9 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
     document.getElementById('ord-pkg').textContent=pkg+' — $'+amt;
     document.getElementById('pay-hint').innerHTML = pkg==='Basic'
       ? 'Amount: <b style="color:var(--white)">$40</b> (Basic, paid in full).'
-      : pkg==='Premium'
-      ? 'Amount: <b style="color:var(--white)">$60</b> (Premium, paid in full) — or <b style="color:var(--white)">$30 now</b> and $30 later.'
-      : 'Amount: <b style="color:var(--white)">$200</b> (Local Full-Service, paid in full).';
+      : 'Amount: <b style="color:var(--white)">$60</b> (Premium, paid in full) — or <b style="color:var(--white)">$30 now</b> and $30 later.';
     document.getElementById('pkg-basic').classList.toggle('sel',pkg==='Basic');
     document.getElementById('pkg-premium').classList.toggle('sel',pkg==='Premium');
-    document.getElementById('pkg-local').classList.toggle('sel',pkg==='Local Full-Service');
   }
   document.getElementById('ord-date').textContent=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
   document.querySelectorAll('.pkg').forEach(function(b){
@@ -169,7 +161,6 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
   });
   var q=new URLSearchParams(location.search);
   if((q.get('pkg')||'').toLowerCase()==='premium'){pkg='Premium';amt=60;}
-  if((q.get('pkg')||'').toLowerCase()==='local'){pkg='Local Full-Service';amt=200;}
   render();
   document.getElementById('copy-zelle').addEventListener('click',function(){
     var btn=this;
