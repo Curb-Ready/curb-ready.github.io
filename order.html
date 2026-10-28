@@ -123,7 +123,8 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
   <div class="ord" id="ord-num">CR-······</div>
   <div class="meta">Package: <b id="ord-pkg">Basic — $40</b> &middot; Date: <b id="ord-date"></b></div>
   <div class="meta" style="margin-top:6px">Keep this receipt. We get started once we have your payment, details and photos.</div>
-  <div style="margin-top:20px"><button type="button" class="btn" id="dl-receipt">Download receipt</button></div>
+  <div style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button type="button" class="btn" id="dl-receipt">Download receipt</button><button type="button" class="btn ghost" id="copy-ord">Copy order number</button></div>
+  <p class="fine"><a href="#" id="new-ord" style="color:var(--muted)">Starting a different order? Generate a new number</a></p>
  </div>
  <p class="fine">Lost your order number? Just text us your name — we&apos;ll match your payment and photos to your order.</p>
 </div></section>
@@ -131,10 +132,10 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
 <section><div class="wrap">
  <div class="stepnum">4</div>
  <h2>Send your car details &amp; photos</h2>
- <p class="lead">Two-minute form: your name and phone, your VIN, anything we should know about the car, and upload as many photos as you can. Type your order number (<b style="color:var(--white)" id="ord-num-2">CR-······</b>) in the first field so everything stays matched to your order. Your VIN is only used for price research and listing details — it&apos;s never posted publicly. Once we have your payment and details, we&apos;ll text you to confirm your order is in.</p>
+ <p class="lead">Two-minute form: your name and phone, your VIN, anything we should know about the car, and upload as many photos as you can. Your order number (<b style="color:var(--white)" id="ord-num-2">CR-······</b>) ties your payment to your details — tap Copy above and paste it into the form&apos;s first field. Your VIN is only used for price research and listing details — it&apos;s never posted publicly. Once we have your payment and details, we&apos;ll text you to confirm your order is in.</p>
  <div class="center"><a class="btn" id="form-link" href="https://docs.google.com/forms/d/e/1FAIpQLSfzzBo17KrS4MojBZ2caSn-owgvv4FaVzZCCrEflcek6FxQeA/viewform?usp=header" target="_blank" rel="noopener">Open the order form</a></div>
  <div class="later"><b>Rather do it later?</b> No problem. Text or email your details and photos any time — just include your order number <b id="ord-num-3">CR-······</b>:<br>
- Text: <a href="sms:+17133519285"><b>713-351-9285</b></a> &middot; Email: <a href="mailto:collinpatterson694@gmail.com"><b>collinpatterson694@gmail.com</b></a></div>
+ Text: <a id="sms-link" href="sms:+17133519285"><b>713-351-9285</b></a> &middot; Email: <a href="mailto:collinpatterson694@gmail.com"><b>collinpatterson694@gmail.com</b></a></div>
  <p class="fine">Questions before you book? DM us on Instagram <a href="https://www.instagram.com/curb_ready/" target="_blank" rel="noopener">@curb_ready</a>.</p>
 </div></section>
 
@@ -146,8 +147,13 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
 <script>
 (function(){
   var CHARS='ABCDEFGHJKMNPQRSTUVWXYZ23456789';
-  var ord='CR-';
-  for(var i=0;i<6;i++){ord+=CHARS.charAt(Math.floor(Math.random()*CHARS.length));}
+  var ord='';
+  try{ord=localStorage.getItem('cr-ord')||'';}catch(e){}
+  if(!/^CR-[A-Z2-9]{6}$/.test(ord)){
+    ord='CR-';
+    for(var i=0;i<6;i++){ord+=CHARS.charAt(Math.floor(Math.random()*CHARS.length));}
+    try{localStorage.setItem('cr-ord',ord);}catch(e){}
+  }
   var pkg='Basic', amt=40;
   function render(){
     document.getElementById('ord-num').textContent=ord;
@@ -159,6 +165,8 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
       : 'Amount: <b style="color:var(--white)">$60</b> (Premium, paid in full) — or <b style="color:var(--white)">$30 now</b> and $30 later.';
     document.getElementById('pkg-basic').classList.toggle('sel',pkg==='Basic');
     document.getElementById('pkg-premium').classList.toggle('sel',pkg==='Premium');
+    var sms=document.getElementById('sms-link');
+    if(sms){sms.href='sms:+17133519285?&body='+encodeURIComponent('Hi! My Curb Ready order is '+ord+'. Here are my car details and photos:');}
   }
   document.getElementById('ord-date').textContent=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
   document.querySelectorAll('.pkg').forEach(function(b){
@@ -171,6 +179,16 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
     var btn=this;
     function done(){btn.textContent='Copied ✓';setTimeout(function(){btn.textContent='Copy Zelle number';},1800);}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText('7133519285').then(done,done);}else{done();}
+  });
+  document.getElementById('copy-ord').addEventListener('click',function(){
+    var btn=this;
+    function done(){btn.textContent='Copied ✓';setTimeout(function(){btn.textContent='Copy order number';},1800);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ord).then(done,done);}else{done();}
+  });
+  document.getElementById('new-ord').addEventListener('click',function(e){
+    e.preventDefault();
+    try{localStorage.removeItem('cr-ord');}catch(err){}
+    location.reload();
   });
   document.getElementById('dl-receipt').addEventListener('click',function(){
     var c=document.createElement('canvas');c.width=1000;c.height=600;
