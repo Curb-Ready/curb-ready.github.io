@@ -10,7 +10,14 @@
 <meta property="og:url" content="https://curb-ready.github.io/">
 <meta property="og:title" content="Curb Ready | We handle the whole car sale">
 <meta property="og:description" content="Send phone photos and a few details. We handle the photos, the ad, the buyers and the negotiation. From $40.">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://curb-ready.github.io/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://curb-ready.github.io/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070b14'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='800' fill='%23ffb020' text-anchor='middle'%3ECR%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Curb Ready","url":"https://curb-ready.github.io/","description":"We handle the whole car sale: edited photos, the written ad, buyer messages and negotiation. You approve the price and meet the buyer once.","areaServed":"US","address":{"@type":"PostalAddress","addressLocality":"Houston","addressRegion":"TX","addressCountry":"US"},"priceRange":"$40 - $60","sameAs":["https://www.instagram.com/curb_ready/"]}</script>
+<!-- Meta Pixel (INERT until you paste a real Pixel ID): remove these comment markers, replace PIXEL_ID with your ID from Events Manager, and ads can track bookings.
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','PIXEL_ID');fbq('track','PageView');</script>
+-->
 <meta name="theme-color" content="#070b14">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,6 +107,14 @@ details[open] summary::after{content:"–"}
 details .ans{padding:0 20px 18px;color:var(--muted);font-size:.95rem}
 details .ans ul{padding-left:18px;margin-top:6px}
 .contact{text-align:center;background:radial-gradient(ellipse 60% 70% at 50% 100%,rgba(60,90,170,.3),transparent 70%)}
+.stickycta{display:none}
+@media(max-width:719px){
+ .stickycta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:20;gap:10px;align-items:center;justify-content:space-between;background:#111a2e;border:1px solid var(--accent);border-radius:14px;padding:10px 12px 10px 16px;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+ .stickycta span{font-size:.85rem;color:var(--muted)}
+ .stickycta span b{color:var(--white)}
+ .stickycta .btn{padding:11px 18px;font-size:.9rem;box-shadow:none;white-space:nowrap}
+ body{padding-bottom:76px}
+}
 .contact .lead{margin:0 auto 28px}
 .contact .mail{display:block;margin-top:18px;color:var(--muted);font-size:.92rem}
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem}
@@ -127,9 +142,9 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
 <header class="hero" id="top"><div class="wrap">
  <div class="kicker">Sell your car without the hassle</div>
  <h1>Selling your car? <em>We handle the sale.</em></h1>
- <p>Send phone photos. We edit them, write the ad, deal with the buyers and negotiate the offers. You just hand over the keys.</p>
+ <p>Phone photos in, sold car out. We edit the photos, write the ad, answer the buyers and negotiate the offers. You approve every price — and meet the buyer exactly once.</p>
  <div class="ctas"><a class="btn" href="order.html">Get started</a><a class="btn ghost" href="#pricing">See pricing</a></div>
- <div class="note">From $40 &middot; We handle the buyers &middot; You meet the buyer once</div>
+ <div class="note">From $40 &middot; Flat fee, no commission &middot; Houston-based, serving sellers anywhere in the U.S.</div>
 </div></header>
 
 <section id="how"><div class="wrap">
@@ -158,7 +173,8 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
    </ul>
    <a class="btn ghost" href="order.html?pkg=basic">Choose Basic</a>
   </div>
-  <div class="card price">
+  <div class="card price featured">
+   <span class="badge">Most popular</span>
    <h3>Premium</h3><div class="amt">$60</div><div class="sub">Everything in Basic, plus the price research.</div>
    <ul>
     <li>Everything in Basic</li>
@@ -189,7 +205,7 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
   <div class="frame before" role="img" aria-label="Illustration of an unedited phone photo: flat, washed out and tilted"><div class="glare"></div><div class="car"></div><span class="tag">Before</span></div>
   <div class="frame after" role="img" aria-label="Illustration of an edited photo: balanced, crisp and level"><div class="reflect"></div><div class="car"></div><div class="light"></div><span class="tag">After</span></div>
  </div>
- <p class="ba-note">Illustration only. Real examples coming soon.</p>
+ <p class="ba-note">Illustration only — real before &amp; afters from sold listings replace these as they come in.</p>
  <div class="promise">
   <div><strong>Best, not different.</strong> We never hide damage, rust, scratches or warning lights.</div>
   <div><strong>No fake backgrounds.</strong> Just small cleanup.</div>
@@ -238,6 +254,8 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
  <div class="kicker">FAQ</div>
  <h2>Questions</h2>
  <p class="lead">Still unsure? Email us and we&apos;ll help.</p>
+ <details><summary>Do you take my car, keys or title?</summary><div class="ans">Never. You stay the seller of record the whole time. Your car stays in your driveway — we only handle the listing, the buyers and the negotiation. You meet the buyer once, for the handoff, at a price you approved.</div></details>
+ <details><summary>What do you do with my VIN?</summary><div class="ans">Price research and listing details only — year, trim, options, market value. Your VIN is never posted publicly in the ad.</div></details>
  <details><summary>When do you start?</summary><div class="ans">Once we have your photos, car details, and payment. If photos are too dark or blurry to fix, we&apos;ll ask for reshoots.</div></details>
  <details><summary>How do I pay?</summary><div class="ans">Zelle on the booking page. Basic is paid upfront; Premium can be split $30 now, $30 on delivery. Card payments are coming soon.</div></details>
  <details><summary>What if I&apos;m not happy?</summary><div class="ans">Listing revisions are included (1 round Basic, 2 rounds Premium). Cancel before work starts for a full refund, 50% after work starts. No refunds based on whether the car sells.</div></details>
@@ -245,8 +263,9 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
 </div></section>
 
 <footer><div class="wrap">
- <span>&copy; 2026 Curb Ready &middot; <a href="https://www.instagram.com/curb_ready/" target="_blank" rel="noopener">Instagram @curb_ready</a></span>
- <span>No guarantee of sale. We handle your listing, buyers and negotiation &mdash; the final price is always yours to approve.</span>
+ <span>&copy; 2026 Curb Ready &middot; Houston, TX &middot; Serving sellers nationwide &middot; <a href="https://www.instagram.com/curb_ready/" target="_blank" rel="noopener">Instagram @curb_ready</a></span>
+ <span>No guarantee of sale. We handle your listing, buyers and negotiation &mdash; the final price is always yours to approve. Your details are only used to run your sale: never sold, never shared beyond your listing.</span>
 </div></footer>
-</body></body>
+<div class="stickycta"><span><b>$40 flat.</b> No commission.</span><a class="btn" href="order.html">Get started</a></div>
+</body>
 </html>
