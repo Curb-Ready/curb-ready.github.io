@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Corrected Curb Ready sitemap — drafted 2026-11-05, updated 2026-11-06, NOT yet deployed.
-     Problem verified live 2026-11-06 ~02:05 UTC: the live sitemap.xml at
-     https://curb-ready.github.io/sitemap.xml contains only one URL,
-     https://curb-ready.github.io/2026-10-17 — a stray date path, not a page.
-     It lists none of the real pages, so search engines get no usable map.
-     UPDATE 2026-11-06 ~21:06 UTC: the two extra pages the 3-URL draft left
-     out were rechecked live by text fetch and both load with full current
-     content (Basic $40 / Premium $60, matching the live site):
-     - https://curb-ready.github.io/sell-my-car-houston.html
-     - https://curb-ready.github.io/how-to-sell-your-car-without-dealing-with-buyers.html
-     This file now lists all five confirmed-live pages.
-     Deploy: replace sitemap.xml in the Curb-Ready repo, then verify live
-     that sitemap.xml returns these five URLs. Needs Collin's go —
-     site changes need his click. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://curb-ready.github.io/</loc>
