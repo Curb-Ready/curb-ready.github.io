@@ -5,36 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Book your listing | Curb Ready</title>
 <meta name="description" content="Book Curb Ready: pick Basic ($40) or Premium ($60), pay by Zelle, get your order number and receipt, then send your car details and photos.">
- <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Curb Ready",
-    "description": "Send phone photos and we handle the whole sale: edited photos, the ad, buyer messages and negotiation. You approve every price and meet the buyer once. From $40 flat, no commission.",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "Curb Ready",
-      "areaServed": "Houston, TX"
-    },
-    "areaServed": "Houston, TX",
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Basic",
-        "price": "40",
-        "priceCurrency": "USD",
-        "description": "Whole sale handled remotely: up to 12 edited photos, listing written and posted, buyer messages handled, offers negotiated — you approve the price."
-      },
-      {
-        "@type": "Offer",
-        "name": "Premium",
-        "price": "60",
-        "priceCurrency": "USD",
-        "description": "Everything in Basic, plus up to 25 photos, price research, day-7 refresh, priority start within 24 hours."
-      }
-    ]
-  }
- </script>
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://curb-ready.github.io/order.html">
 <meta name="theme-color" content="#070b14">
@@ -97,6 +67,49 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem}
 footer .wrap{display:flex;flex-direction:column;gap:6px}
 @media(min-width:720px){footer .wrap{flex-direction:row;justify-content:space-between}}
+/* --- on-site order form (step 4) --- */
+.orderform{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+.orderform h3{font-size:1.05rem;margin:26px 0 14px}
+.orderform h3:first-child{margin-top:0}
+.ordline{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:6px}
+.ordline .lbl{color:var(--muted);font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.ordline .val{font-weight:800;color:var(--accent);font-size:1.15rem;letter-spacing:.04em}
+.ordline .pkgval{color:var(--white);font-weight:600}
+.frow{display:grid;gap:14px;margin-bottom:14px}
+@media(min-width:640px){.frow.two{grid-template-columns:1fr 1fr}.frow.three{grid-template-columns:1fr 1fr 1fr}}
+.field label{display:block;font-size:.85rem;font-weight:600;color:var(--white);margin-bottom:6px}
+.field label .req{color:var(--accent)}
+.field .hint{font-weight:400;color:var(--muted)}
+.field input,.field textarea{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:12px;color:var(--white);font-family:inherit;font-size:1rem;padding:13px 14px;outline:none;transition:border-color .15s,box-shadow .15s}
+.field textarea{min-height:96px;resize:vertical}
+.field input:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.field input[readonly]{color:var(--accent);font-weight:800;letter-spacing:.04em}
+.field input[type="number"]{appearance:textfield;-moz-appearance:textfield}
+.field input[type="number"]::-webkit-outer-spin-button,.field input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.inputwrap{position:relative}
+.inputwrap .cur{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-weight:600}
+.inputwrap input{padding-left:30px}
+.prefbox{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--bg2)}
+.check{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line);cursor:pointer;font-size:.95rem}
+.check:last-child{border-bottom:0}
+.check input{flex:none;width:20px;height:20px;margin-top:2px;accent-color:var(--accent);cursor:pointer}
+.check b{color:var(--white);font-weight:600}
+.check .sub{display:block;color:var(--muted);font-size:.88rem}
+.withinrow{display:flex;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap}
+.withinrow .cur{color:var(--muted);font-weight:600}
+.withinrow input{width:120px;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--white);font-family:inherit;font-size:.95rem;padding:9px 12px;outline:none}
+.withinrow input:focus{border-color:var(--accent)}
+.withinrow input:disabled{opacity:.4}
+.filebox{border:1px dashed #35507e;border-radius:14px;padding:20px;text-align:center;background:var(--bg2)}
+.filebox input{width:100%;color:var(--muted);font-family:inherit;font-size:.92rem}
+.filebox input::file-selector-button{background:var(--accent);color:#0a0d14;font-weight:800;border:0;border-radius:10px;padding:11px 18px;margin-right:12px;cursor:pointer;font-family:inherit;font-size:.92rem}
+.filelist{margin-top:12px;font-size:.88rem;color:var(--muted);text-align:left}
+.filelist div{padding:2px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.filelist .over{color:#ff7a7a;font-weight:600}
+.formerr{display:none;background:rgba(255,122,122,.1);border:1px solid rgba(255,122,122,.4);color:#ffb3b3;border-radius:12px;padding:13px 16px;font-size:.93rem;margin-bottom:16px}
+.formok{display:none;background:linear-gradient(180deg,var(--bg2),var(--card));border:1px dashed #35507e;border-radius:18px;padding:28px;text-align:center}
+.formok .ord{font-size:clamp(1.8rem,7vw,2.4rem);font-weight:800;letter-spacing:.06em;color:var(--accent);margin:6px 0}
+.formok p{color:var(--muted);max-width:480px;margin:0 auto}
 </style>
 </head>
 <body>
@@ -162,10 +175,88 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
 <section><div class="wrap">
  <div class="stepnum">4</div>
  <h2>Send your car details &amp; photos</h2>
- <p class="lead">Two-minute form: your name and phone, your VIN, anything we should know about the car, and upload as many photos as you can. Your order number (<b style="color:var(--white)" id="ord-num-2">CR-······</b>) ties your payment to your details — tap Copy above and paste it into the form&apos;s first field. Your VIN is only used for price research and listing details — it&apos;s never posted publicly. Once we have your payment and details, we&apos;ll text you to confirm your order is in.</p>
- <div class="center"><a class="btn" id="form-link" href="https://docs.google.com/forms/d/e/1FAIpQLSfzzBo17KrS4MojBZ2caSn-owgvv4FaVzZCCrEflcek6FxQeA/viewform?usp=header" target="_blank" rel="noopener">Open the order form</a></div>
+ <p class="lead">Two-minute form, right here on this page — no separate form to open. Your order number (<b style="color:var(--white)" id="ord-num-2">CR-······</b>) is attached automatically, so your payment and your details match up. Your VIN is only used for price research and listing details — it&apos;s never posted publicly. Once we have your payment and details, we&apos;ll text you to confirm your order is in.</p>
+
+ <div class="formok" id="form-ok">
+  <div class="kicker" style="margin-bottom:0">Order received</div>
+  <div class="ord" id="ok-ord">CR-······</div>
+  <p>Thanks — we got your car details and photos. We&apos;ll text you to confirm your order is in and get your listing started.</p>
+  <p style="margin-top:10px">Need to send more photos later? Text them to <b style="color:var(--white)">713-351-9285</b> with your order number.</p>
+ </div>
+
+ <form class="orderform" id="order-form" action="https://formsubmit.co/readycurb@gmail.com" method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="_subject" id="fs-subject" value="Curb Ready order">
+  <input type="hidden" name="_next" value="https://curb-ready.github.io/order.html?sent=1">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="text" name="_honey" style="display:none">
+  <input type="hidden" name="order_number" id="f-order-number" value="">
+  <input type="hidden" name="package" id="f-package" value="Basic — $40">
+  <input type="hidden" name="notification_summary" id="f-notify-summary" value="">
+
+  <div class="ordline">
+   <span class="lbl">Order</span><span class="val" id="f-ord-display">CR-······</span>
+   <span class="lbl">Package</span><span class="pkgval" id="f-pkg-display">Basic — $40</span>
+  </div>
+
+  <h3>Your details</h3>
+  <div class="frow two">
+   <div class="field"><label for="f-name">Full name <span class="req">*</span></label><input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Your name"></div>
+   <div class="field"><label for="f-phone">Phone <span class="req">*</span></label><input type="tel" id="f-phone" name="phone" required autocomplete="tel" placeholder="(713) 555-0100"></div>
+  </div>
+  <div class="frow two">
+   <div class="field"><label for="f-email">Email <span class="req">*</span></label><input type="email" id="f-email" name="email" required autocomplete="email" placeholder="you@email.com"></div>
+   <div class="field"><label for="f-vin">VIN <span class="hint">(if you have it handy)</span></label><input type="text" id="f-vin" name="vin" autocomplete="off" placeholder="17-character VIN" maxlength="17" style="text-transform:uppercase"></div>
+  </div>
+
+  <h3>Your car</h3>
+  <div class="frow three">
+   <div class="field"><label for="f-year">Year <span class="req">*</span></label><input type="number" id="f-year" name="car_year" required min="1950" max="2027" placeholder="2019"></div>
+   <div class="field"><label for="f-make">Make <span class="req">*</span></label><input type="text" id="f-make" name="car_make" required autocomplete="off" placeholder="Toyota"></div>
+   <div class="field"><label for="f-model">Model <span class="req">*</span></label><input type="text" id="f-model" name="car_model" required autocomplete="off" placeholder="Camry LE"></div>
+  </div>
+  <div class="frow">
+   <div class="field"><label for="f-price">Asking price <span class="req">*</span></label>
+    <div class="inputwrap"><span class="cur">$</span><input type="number" id="f-price" name="asking_price" required min="1" step="1" placeholder="12500"></div>
+   </div>
+  </div>
+  <div class="frow">
+   <div class="field"><label for="f-notes">Anything we should know? <span class="hint">(condition, damage, loan or lien, salvage / rebuilt title)</span></label><textarea id="f-notes" name="car_notes" placeholder="e.g. Small dent on the rear bumper, new tires in March, still has a loan with Chase."></textarea></div>
+  </div>
+
+  <h3>Photos</h3>
+  <div class="frow">
+   <div class="filebox">
+    <input type="file" id="f-photos" name="attachment" accept="image/*" multiple>
+    <div class="filelist" id="file-list">Phone photos are fine — exterior, interior, engine bay, and close-ups of any damage. Up to 10 photos, 10MB total.</div>
+   </div>
+  </div>
+
+  <h3>What do you want to hear about?</h3>
+  <p class="lead" style="margin-bottom:14px">Tell us which buyer messages are worth interrupting you for. Anything you don&apos;t check, we handle quietly on your behalf — nothing is ever accepted without your approval.</p>
+  <div class="prefbox">
+   <label class="check"><input type="checkbox" id="n-trade" name="notify_trade_offers" value="yes"><span><b>Trade offers</b><span class="sub">Someone offers to swap their car for yours instead of paying cash.</span></span></label>
+   <label class="check"><input type="checkbox" id="n-close" name="notify_close_offers" value="yes" checked><span><b>Offers close to my asking price</b><span class="sub">Only bother me when an offer is near what I&apos;m asking for.</span>
+    <span class="withinrow">Only tell me about offers within <span class="cur">$</span><input type="number" id="n-within" name="notify_close_within" min="1" step="1" value="500" aria-label="Dollars within asking price"> of my asking price.</span>
+   </span></label>
+   <label class="check"><input type="checkbox" id="n-all" name="notify_all_offers" value="yes"><span><b>All offers</b><span class="sub">Tell me about every offer, even the low ones.</span></span></label>
+   <label class="check"><input type="checkbox" id="n-questions" name="notify_buyer_questions" value="yes" checked><span><b>Buyer questions</b><span class="sub">When a buyer asks something only you can answer — condition, history, title.</span></span></label>
+  </div>
+
+  <h3>How should we reach you?</h3>
+  <div class="prefbox">
+   <label class="check"><input type="checkbox" name="contact_text" value="yes" checked><span><b>Text</b><span class="sub">Fastest — we text you about offers and questions.</span></span></label>
+   <label class="check"><input type="checkbox" name="contact_call" value="yes"><span><b>Call</b><span class="sub">Call me instead of texting.</span></span></label>
+   <label class="check"><input type="checkbox" name="contact_email" value="yes"><span><b>Email</b><span class="sub">Send updates to the email above.</span></span></label>
+  </div>
+
+  <div class="formerr" id="form-err"></div>
+  <div style="margin-top:24px"><button type="submit" class="btn" id="submit-btn" style="width:100%">Send my order</button></div>
+  <p class="fine">Your details are only used to run your sale — never sold, never shared beyond your listing. Your VIN is never posted publicly.</p>
+ </form>
+
  <div class="later"><b>Rather do it later?</b> No problem. Text or email your details and photos any time — just include your order number <b id="ord-num-3">CR-······</b>:<br>
- Text: <a id="sms-link" href="sms:+17133519285"><b>713-351-9285</b></a> &middot; Email: <a href="mailto:collinpatterson694@gmail.com"><b>collinpatterson694@gmail.com</b></a></div>
+ Text: <a id="sms-link" href="sms:+17133519285"><b>713-351-9285</b></a> &middot; Email: <a href="mailto:readycurb@gmail.com"><b>readycurb@gmail.com</b></a></div>
  <p class="fine">Questions before you book? DM us on Instagram <a href="https://www.instagram.com/curb_ready/" target="_blank" rel="noopener">@curb_ready</a>.</p>
 </div></section>
 
@@ -197,6 +288,11 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
     document.getElementById('pkg-premium').classList.toggle('sel',pkg==='Premium');
     var sms=document.getElementById('sms-link');
     if(sms){sms.href='sms:+17133519285?&body='+encodeURIComponent('Hi! My Curb Ready order is '+ord+'. Here are my car details and photos:');}
+    var fo=document.getElementById('f-order-number'); if(fo){fo.value=ord;}
+    var fp=document.getElementById('f-package'); if(fp){fp.value=pkg+' — $'+amt;}
+    var od=document.getElementById('f-ord-display'); if(od){od.textContent=ord;}
+    var pd=document.getElementById('f-pkg-display'); if(pd){pd.textContent=pkg+' — $'+amt;}
+    var ok=document.getElementById('ok-ord'); if(ok){ok.textContent=ord;}
   }
   document.getElementById('ord-date').textContent=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
   document.querySelectorAll('.pkg').forEach(function(b){
@@ -238,6 +334,52 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
     x.fillText('Text 713-351-9285 · curb-ready.github.io',500,522);
     var a=document.createElement('a');a.download='curb-ready-receipt-'+ord+'.png';a.href=c.toDataURL('image/png');a.click();
   });
+  /* --- on-site order form --- */
+  var form=document.getElementById('order-form');
+  var errBox=document.getElementById('form-err');
+  function showErr(msg){errBox.textContent=msg;errBox.style.display='block';errBox.scrollIntoView({behavior:'smooth',block:'center'});}
+  // "within $___" only applies when "offers close to asking" is checked
+  var closeBox=document.getElementById('n-close'), within=document.getElementById('n-within');
+  function syncWithin(){within.disabled=!closeBox.checked;}
+  closeBox.addEventListener('change',syncWithin); syncWithin();
+  // photo list + 10MB total guard (FormSubmit's limit)
+  var photos=document.getElementById('f-photos'), flist=document.getElementById('file-list');
+  var MAXTOTAL=10*1024*1024;
+  function fmt(n){return n>1048576?(n/1048576).toFixed(1)+' MB':Math.round(n/1024)+' KB';}
+  function photoTotal(){var t=0;for(var i=0;i<photos.files.length;i++){t+=photos.files[i].size;}return t;}
+  photos.addEventListener('change',function(){
+    var files=photos.files;
+    if(!files.length){flist.textContent='Phone photos are fine — exterior, interior, engine bay, and close-ups of any damage. Up to 10 photos, 10MB total.';return;}
+    var total=photoTotal(), html='';
+    for(var i=0;i<files.length;i++){html+='<div>'+files[i].name+' — '+fmt(files[i].size)+'</div>';}
+    html+='<div class="'+(total>MAXTOTAL?'over':'')+'">Total: '+fmt(total)+' of 10MB'+(total>MAXTOTAL?' — too big, remove some photos':'')+'</div>';
+    flist.innerHTML=html;
+  });
+  form.addEventListener('submit',function(e){
+    errBox.style.display='none';
+    var total=photoTotal();
+    if(total>MAXTOTAL){e.preventDefault();showErr('Your photos add up to more than 10MB — please remove some and try again.');return;}
+    if(photos.files.length>10){e.preventDefault();showErr('Please send no more than 10 photos here — the rest can go by text to 713-351-9285 with your order number.');return;}
+    // build the notification summary line (one clean row in the inbox email)
+    var parts=[];
+    parts.push('Trade offers: '+(document.getElementById('n-trade').checked?'yes':'no'));
+    parts.push('Offers close to asking: '+(closeBox.checked?('yes, within $'+(within.value||'500')):'no'));
+    parts.push('All offers: '+(document.getElementById('n-all').checked?'yes':'no'));
+    parts.push('Buyer questions: '+(document.getElementById('n-questions').checked?'yes':'no'));
+    var reach=[];
+    form.querySelectorAll('input[name^="contact_"]:checked').forEach(function(c){reach.push(c.name.replace('contact_',''));});
+    parts.push('Reach me by: '+(reach.length?reach.join(', '):'not specified'));
+    document.getElementById('f-notify-summary').value=parts.join(' | ');
+    var nm=document.getElementById('f-name').value.trim();
+    document.getElementById('fs-subject').value='Curb Ready order '+ord+' — '+nm+' ('+pkg+' $'+amt+')';
+  });
+  // after FormSubmit sends the customer back (?sent=1), swap the form for a confirmation
+  if(q.get('sent')==='1'){
+    var ok=document.getElementById('form-ok');
+    ok.style.display='block';
+    form.style.display='none';
+    ok.scrollIntoView({behavior:'smooth',block:'center'});
+  }
 })();
 </script>
 </body>
